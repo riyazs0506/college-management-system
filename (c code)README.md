@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+
 // Structure definitions
 typedef struct {
     int id;
@@ -10,11 +12,15 @@ typedef struct {
     char gender;
 } Student;
 
+
+
 typedef struct {
     int id;
     char name[50];
     int credits;
 } Course;
+
+
 
 // Function prototypes
 void addStudent(Student students[], int *studentCount);
@@ -23,6 +29,8 @@ void searchStudentById(Student students[], int studentCount, int id);
 void addCourse(Course courses[], int *courseCount);
 void viewCourses(Course courses[], int courseCount);
 void searchCourseById(Course courses[], int courseCount, int id);
+
+
 
 int main() {
     Student students[100]; // Assuming maximum 100 students
@@ -42,6 +50,7 @@ int main() {
         printf("7. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
+
 
         switch (choice) {
             case 1:
@@ -79,11 +88,13 @@ int main() {
     return 0;
 }
 
+
 void addStudent(Student students[], int *studentCount) {
     if (*studentCount >= 100) {
         printf("Maximum number of students reached.\n");
         return;
     }
+
 
     printf("Enter student ID: ");
     scanf("%d", &students[*studentCount].id);
@@ -98,6 +109,7 @@ void addStudent(Student students[], int *studentCount) {
     printf("Student added successfully.\n");
 }
 
+
 void viewStudents(Student students[], int studentCount) {
     printf("Student List:\n");
     printf("ID\tName\tAge\tGender\n");
@@ -105,6 +117,7 @@ void viewStudents(Student students[], int studentCount) {
         printf("%d\t%s\t%d\t%c\n", students[i].id, students[i].name, students[i].age, students[i].gender);
     }
 }
+
 
 void searchStudentById(Student students[], int studentCount, int id) {
     for (int i = 0; i < studentCount; i++) {
@@ -117,11 +130,13 @@ void searchStudentById(Student students[], int studentCount, int id) {
     printf("Student with ID %d not found.\n", id);
 }
 
+
 void addCourse(Course courses[], int *courseCount) {
     if (*courseCount >= 50) {
         printf("Maximum number of courses reached.\n");
         return;
     }
+
 
     printf("Enter course ID: ");
     scanf("%d", &courses[*courseCount].id);
@@ -134,6 +149,7 @@ void addCourse(Course courses[], int *courseCount) {
     printf("Course added successfully.\n");
 }
 
+
 void viewCourses(Course courses[], int courseCount) {
     printf("Course List:\n");
     printf("ID\tName\tCredits\n");
@@ -141,6 +157,7 @@ void viewCourses(Course courses[], int courseCount) {
         printf("%d\t%s\t%d\n", courses[i].id, courses[i].name, courses[i].credits);
     }
 }
+
 
 void searchCourseById(Course courses[], int courseCount, int id) {
     for (int i = 0; i < courseCount; i++) {
